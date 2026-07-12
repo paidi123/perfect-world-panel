@@ -1,294 +1,224 @@
-# Perfect World Private Server Panel 🎮
+# Perfect World Panel
 
-[![Laravel](https://img.shields.io/badge/Laravel-10.x-FF2D20?style=flat-square)](https://laravel.com)
-[![Vue.js](https://img.shields.io/badge/Vue.js-3.x-4FC08D?style=flat-square)](https://vuejs.org)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+A comprehensive game administration panel for managing Perfect World Online game servers.
 
-Full-featured Laravel-based administration panel untuk Perfect World Private Servers dengan support untuk 500+ concurrent users.
-
-## 🌟 Fitur Utama
-
-### Manajemen Akun & Karakter
-- ✅ User Account Management (Create, Edit, Delete, Ban/Unban)
-- ✅ Character Management & Statistics
-- ✅ Account Security (2FA, IP Whitelist)
-- ✅ Account Recovery System
-- ✅ Multi-character support
-
-### Manajemen Item & Currency
-- ✅ Currency Management System
-- ✅ Item Management & Distribution
-- ✅ Item Generator dengan quantity control
-- ✅ Inventory tracking
-- ✅ Item history & audit log
+## Features
 
 ### Admin Dashboard
-- ✅ GM/Admin Panel dengan Role-Based Access Control
-- ✅ Server Statistics & Analytics Dashboard
-- ✅ Real-time player monitoring
-- ✅ Activity Logs & Audit Trail
-- ✅ Performance metrics
+- Real-time server statistics
+- Account and character management
+- Item distribution system
+- Transaction tracking
+- Player reports handling
+- Game balance configuration
+- System announcements
 
-### Server Management
-- ✅ Server Configuration Management
-- ✅ Game Balance Configuration (Drop rates, EXP rates, etc.)
-- ✅ NPC & Monster Management
-- ✅ Event Management System
-- ✅ Scheduled Events & Maintenance
+### Player Features
+- Account management
+- Character management
+- Transaction history
+- Report system
+- Server status
+- Announcements
 
-### Finance & Reports
-- ✅ Income & Revenue Reports
-- ✅ Payment Gateway Integration (iPaymu, Midtrans)
-- ✅ Transaction History
-- ✅ Financial Analytics
-- ✅ Refund Management
+## Technology Stack
 
-### Security & Monitoring
-- ✅ Anti-Cheat & Violation Reports
-- ✅ Player Behavior Analysis
-- ✅ Login attempt tracking
-- ✅ IP blocking & whitelist
-- ✅ Security audit logs
+### Backend
+- **Framework**: Laravel 10
+- **Database**: MySQL
+- **Cache**: Redis
+- **Authentication**: JWT
+- **API**: RESTful API
 
-### Website Integration
-- ✅ News & Announcements System
-- ✅ Patch Notes Management
-- ✅ Website Database Synchronization
-- ✅ Forum Integration
-- ✅ Email Notifications
+### Frontend
+- **Framework**: Vue.js 3
+- **State Management**: Pinia
+- **Styling**: Tailwind CSS
+- **HTTP Client**: Axios
+- **Build Tool**: Vite
 
-### Communication
-- ✅ In-Game Mail System
-- ✅ Bulk messaging
-- ✅ Notification system
-- ✅ Email templates
+## Installation
 
-### UI/UX
-- ✅ Responsive Mobile-Friendly Dashboard
-- ✅ Dark/Light mode support
-- ✅ Real-time notifications
-- ✅ Advanced data tables
-- ✅ Export to Excel/PDF
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|-------|------------|
-| **Backend** | Laravel 10.x, PHP 8.2+ |
-| **Frontend** | Vue.js 3, Tailwind CSS, Alpine.js |
-| **Database** | MySQL 8.0 / MariaDB 10.6+ |
-| **API** | RESTful API dengan JWT Authentication |
-| **Caching** | Redis (optional) |
-| **Queue** | Redis / Database Queue |
-| **Real-time** | WebSocket (Laravel Echo) |
-| **File Storage** | Local / AWS S3 |
-
-## 📁 Struktur Project
-
-```
-perfect-world-panel/
-├── app/
-│   ├── Http/
-│   │   ├── Controllers/
-│   │   │   ├── Admin/           (Admin controllers)
-│   │   │   ├── Player/          (Player controllers)
-│   │   │   ├── API/             (API controllers)
-│   │   │   └── Auth/            (Authentication)
-│   │   ├── Middleware/
-│   │   └── Requests/            (Form validation)
-│   ├── Models/                  (Database models)
-│   ├── Services/                (Business logic)
-│   ├── Jobs/                    (Queue jobs)
-│   ├── Events/                  (Event handlers)
-│   └── Traits/                  (Reusable traits)
-├── database/
-│   ├── migrations/              (Database schema)
-│   ├── seeders/                 (Data seeders)
-│   └── factories/               (Model factories)
-├── resources/
-│   ├── js/
-│   │   ├── components/          (Vue components)
-│   │   ├── pages/               (Pages)
-│   │   ├── stores/              (Pinia stores)
-│   │   └── App.vue
-│   ├── views/                   (Blade templates)
-│   └── css/                     (Tailwind CSS)
-├── routes/
-│   ├── api.php
-│   ├── web.php
-│   └── admin.php
-├── config/
-│   ├── app.php
-│   ├── database.php
-│   ├── auth.php
-│   └── ...
-├── storage/
-├── tests/
-└── ...
-```
-
-## 🚀 Instalasi
-
-### Requirements
+### Prerequisites
 - PHP 8.2+
-- MySQL 8.0+ atau MariaDB 10.6+
-- Composer
 - Node.js 18+
-- Redis (optional)
+- MySQL 8.0+
+- Redis
 
-### Setup
+### Backend Setup
 
 ```bash
-# 1. Clone repository
+# Clone the repository
 git clone https://github.com/paidi123/perfect-world-panel.git
 cd perfect-world-panel
 
-# 2. Install dependencies
+# Install PHP dependencies
 composer install
-npm install
 
-# 3. Setup environment
+# Create environment file
 cp .env.example .env
+
+# Generate app key
 php artisan key:generate
 
-# 4. Database configuration
-# Edit .env dan set database credentials
+# Generate JWT secret
+php artisan jwt:secret
 
-# 5. Database migration
+# Run migrations
 php artisan migrate
+
+# Seed database
 php artisan db:seed
 
-# 6. Build assets
-npm run dev      # Development
-npm run build    # Production
-
-# 7. Start server
+# Start the development server
 php artisan serve
-
-# Akses: http://localhost:8000
 ```
 
-## 📖 Dokumentasi
+### Frontend Setup
 
-Untuk dokumentasi lengkap, lihat [DOCUMENTATION.md](./DOCUMENTATION.md)
+```bash
+# Install Node dependencies
+npm install
 
-### Quick Links
-- [Installation Guide](./docs/INSTALLATION.md)
-- [Configuration](./docs/CONFIGURATION.md)
-- [API Documentation](./docs/API.md)
-- [Database Schema](./docs/DATABASE.md)
-- [Contributing Guide](./CONTRIBUTING.md)
+# Start development server
+npm run dev
 
-## 🔧 Konfigurasi
-
-### Database Connection
-
-```env
-# Panel Database
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=pw_panel
-DB_USERNAME=root
-DB_PASSWORD=
-
-# Game Database (connection terpisah)
-GAME_DB_HOST=127.0.0.1
-GAME_DB_DATABASE=pw_game
+# Build for production
+npm run build
 ```
 
-### Payment Gateway
+## API Documentation
 
-```env
-# iPaymu
-IPAYMU_VA=YOUR_VA
-IPAYMU_API_KEY=YOUR_API_KEY
-IPAYMU_SIGNATURE_KEY=YOUR_SIGNATURE
+### Authentication Endpoints
 
-# Midtrans
-MIDTRANS_SERVER_KEY=YOUR_SERVER_KEY
-MIDTRANS_CLIENT_KEY=YOUR_CLIENT_KEY
-MIDTRANS_IS_PRODUCTION=false
+#### Register
+```
+POST /api/auth/register
+Body: {
+  "name": "string",
+  "email": "string",
+  "password": "string",
+  "password_confirmation": "string"
+}
 ```
 
-## 📝 Default Account
-
-Setelah migration & seeding:
-
+#### Login
 ```
-Email: admin@example.com
-Password: password
-Role: Super Admin
-```
-
-**⚠️ PENTING: Ubah password ini setelah login pertama!**
-
-## 🔐 Security Features
-
-- JWT Token Authentication
-- Role-Based Access Control (RBAC)
-- Two-Factor Authentication (2FA)
-- CORS Protection
-- CSRF Token Validation
-- SQL Injection Prevention
-- XSS Protection
-- Rate Limiting
-- IP Whitelisting
-- Activity Logging
-
-## 📊 API Endpoints
-
-### Authentication
-```
-POST   /api/auth/login
-POST   /api/auth/logout
-POST   /api/auth/refresh
-GET    /api/auth/me
+POST /api/auth/login
+Body: {
+  "email": "string",
+  "password": "string"
+}
 ```
 
-### Users
+#### Logout
 ```
-GET    /api/users
-GET    /api/users/{id}
-POST   /api/users
-PUT    /api/users/{id}
-DELETE /api/users/{id}
+POST /api/auth/logout
+Headers: Authorization: Bearer {token}
 ```
 
-### Characters
+### Admin Endpoints
+
+#### Get Accounts
 ```
-GET    /api/characters
-GET    /api/characters/{id}
-POST   /api/characters
-PUT    /api/characters/{id}
+GET /api/admin/accounts?page=1&search=query
+Headers: Authorization: Bearer {token}
 ```
 
-Untuk dokumentasi API lengkap: [API Documentation](./docs/API.md)
+#### Ban Account
+```
+POST /api/admin/accounts/{id}/ban
+Headers: Authorization: Bearer {token}
+Body: {
+  "reason": "string",
+  "until": "date"
+}
+```
 
-## 🤝 Contributing
+#### Distribute Item
+```
+POST /api/admin/items/distribute
+Headers: Authorization: Bearer {token}
+Body: {
+  "item_id": "integer",
+  "character_id": "integer",
+  "quantity": "integer",
+  "reason": "string"
+}
+```
 
-Kontribusi sangat diterima! Silakan baca [CONTRIBUTING.md](./CONTRIBUTING.md) untuk detailnya.
+## Database Schema
 
-## 📄 License
+### Accounts Table
+- `id` - Primary key
+- `user_id` - Foreign key to users
+- `account_name` - Unique account name
+- `account_status` - active, inactive, suspended
+- `is_banned` - Boolean flag
+- `ban_reason` - Reason for ban
+- `ban_until` - Ban expiration date
+- `last_login` - Last login timestamp
 
-Proyek ini dilisensikan di bawah MIT License - lihat [LICENSE](./LICENSE) file untuk detailnya.
+### Characters Table
+- `id` - Primary key
+- `account_id` - Foreign key to accounts
+- `character_name` - Unique character name
+- `level` - Character level (1-150)
+- `class` - wizard, warrior, archer, cleric, assassin
+- `faction` - human, tian, demon
+- `experience` - Current experience
+- `money` - In-game currency
+- `yuanBao` - Premium currency
+- `boundYuanBao` - Bound premium currency
+- `status` - online, offline
+- `play_time` - Total playtime in hours
 
-## 👨‍💻 Author
+## Testing
 
-- **Paidi123** - Initial work - [GitHub](https://github.com/paidi123)
+```bash
+# Run all tests
+php artisan test
 
-Based on structure dari [@hrace009](https://github.com/hrace009) PW Panel examples.
+# Run specific test file
+php artisan test tests/Feature/AuthenticationTest.php
 
-## 📞 Support
+# Run with coverage
+php artisan test --coverage
+```
 
-Untuk pertanyaan atau masalah:
-- Buka issue di [GitHub Issues](https://github.com/paidi123/perfect-world-panel/issues)
-- Email: your-email@example.com
+## Security
 
-## 🙏 Terima Kasih
+- JWT token-based authentication
+- Role-based access control (RBAC)
+- Input validation and sanitization
+- SQL injection prevention via Eloquent ORM
+- CORS configuration
+- Rate limiting
+- Activity logging
 
-Terima kasih kepada:
-- [Laravel Framework](https://laravel.com)
-- [Vue.js](https://vuejs.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- Community Perfect World Private Server
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+For support, email support@perfectworldpanel.com or open an issue on GitHub.
+
+## Roadmap
+
+- [ ] Guild management system
+- [ ] PvP arena rankings
+- [ ] Marketplace integration
+- [ ] In-game shop management
+- [ ] Event scheduling system
+- [ ] Advanced analytics
+- [ ] Mobile app
+- [ ] WebSocket support for real-time updates
